@@ -1,3 +1,8 @@
+// Edge cases to test for include a substring to be
+// searched for that is empty or longer than the string to be searched 
+// and a string to be searched that is of zero length.
+// https://medium.com/chingu/welcome-rhinos-to-the-international-try-pair-programming-festival-of-2016-2b4b02434734
+
 
 const checkArrays = (charsToSearch, charsToLookFor) => {
     if (charsToLookFor.length !== charsToSearch.length){
@@ -14,13 +19,16 @@ const checkArrays = (charsToSearch, charsToLookFor) => {
 const searchForSubstring = (stringToSearch, stringToLookFor) => {
     let charsToSearch = Array.from(stringToSearch);
     let charsToLookFor = Array.from(stringToLookFor);
-    // let result = -1;
-    let done = false;
-
     let result = false;
+
+    if (charsToLookFor.length > charsToSearch.length){
+        return -1;
+    }
+    if (charsToLookFor.length === 0 || charsToSearch.length ===0){
+        return -1;
+    }
     for (let i = 0; i < charsToSearch.length; i++) {
         if ((charsToSearch[i] === charsToLookFor[0])) {
-            // result = true;
             result = checkArrays(charsToSearch.splice(i, charsToLookFor.length), charsToLookFor);
             if (result) {
                 return i;
@@ -30,40 +38,16 @@ const searchForSubstring = (stringToSearch, stringToLookFor) => {
     return -1;
 }
 
-        /*if (done) {
-            break;
-        }
-
-            tomas302 solution
-        for (let k = 0; k < charsToLookFor.length; k++) {
-            if ((charsToSearch[i] !== charsToLookFor[k])) {
-                if (result !== -1) result = -1;
-                break;
-            } else {
-                switch(k) {
-                    case(0):
-                        result = i;
-                        if (k !== charsToLookFor.length - 1) break;
-                    case(charsToLookFor.length - 1):
-                        done = true;
-                        break;
-                    default:
-
-                        break;
-                }
-            }
-        }
-        
-    }
-
-
-    return result;
-};*/
-
-const main = () => {
-    let result = searchForSubstring("abcdefg", "g");
-    console.log(result);
-    document.getElementById("result").innerHTML = result;
+const handleClick = (e) => {
+    let result = searchForSubstring(document.getElementById("stringToSearch").value, document.getElementById("stringToLookFor").value);
+    document.getElementById("result").innerHTML = (result === -1) ? "We didn't find anything" : "The index is: " + result;
 };
 
-main();
+$(document).ready(() => {
+    $("form").submit(function(e){
+        e.preventDefault();
+    });
+    $("#searchButton").click((e) => {
+        handleClick(e);
+    });
+});
