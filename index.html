@@ -2,27 +2,55 @@
 
 <head>
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        .row {
+            text-align: center;
+        }
+        .col-xs-12 {
+            float: none;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 
 <body>
-    <span>Write a function to locate a substring within another string.
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Search for substring in string</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <form method="POST">
+                    <div class="form-group">
+                        <label for="stringToSearch">String to search:</label>
+                        <input type="text" class="form-control" id="stringToSearch" />
+                    </div>
+                    <div class="form-group">
+                        <label for="stringToLookFor">String to look for:</label>
+                        <input type="text" class="form-control" id="stringToLookFor" />
+                    </div>
+                    <button class="btn btn-large btn-primary" id="searchButton">Search</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div id="result"></div>
+            </div>
+        </div>
+    </div>
 
-        Your function must be named searchForSubstring and it should accept two parameters
-        - a string to be searched and substring to be located within it.
-
-        This function should return an integer reprsenting the zero-based starting position of the substring,
-        or -1 if it was not found. For example,
-
-        let foundAtPosition = searchForSubstring(stringToSearch, stringToLookFor)
-
-        Both the string to be searched and the substring to be searching for may be of any length.
-        These strings may contain any combination of letters, numbers, and punctuation.
-
-        Edge cases to test for include a substring to be searched for that is empty or
-        longer than the string to be searched and a string to be searched that is of zero length.
-    </span>
-
-    <div id="result"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
     <script src="./js/index.js"></script>
 </body>
 
