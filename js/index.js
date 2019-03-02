@@ -1,8 +1,3 @@
-// Edge cases to test for include a substring to be
-// searched for that is empty or longer than the string to be searched 
-// and a string to be searched that is of zero length.
-// https://medium.com/chingu/welcome-rhinos-to-the-international-try-pair-programming-festival-of-2016-2b4b02434734
-
 
 const checkArrays = (charsToSearch, charsToLookFor) => {
     if (charsToLookFor.length !== charsToSearch.length){
