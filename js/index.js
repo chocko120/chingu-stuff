@@ -24,7 +24,7 @@ const searchForSubstring = (stringToSearch, stringToLookFor) => {
     }
     for (let i = 0; i < charsToSearch.length; i++) {
         if ((charsToSearch[i] === charsToLookFor[0])) {
-            result = checkArrays(charsToSearch.splice(i, charsToLookFor.length), charsToLookFor);
+            result = checkArrays(Array.from(charsToSearch).splice(i, charsToLookFor.length), charsToLookFor);
             if (result) {
                 return i;
             } 
