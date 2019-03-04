@@ -12,6 +12,7 @@ const checkArrays = (charsToSearch, charsToLookFor) => {
 };
 
 const searchForSubstring = (stringToSearch, stringToLookFor) => {
+    if (!stringToSearch || !stringToLookFor) return -1;
     let charsToSearch = Array.from(stringToSearch);
     let charsToLookFor = Array.from(stringToLookFor);
     let result = false;
